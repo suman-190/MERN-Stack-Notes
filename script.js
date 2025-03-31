@@ -228,3 +228,29 @@
 // console.log(b);
 
 
+import http from 'http';
+import os from 'os';
+
+console.log(os.type());
+
+const server = http.createServer((req,res)=>{
+    
+    if(req.url==="/users"){
+        res.writeHead(200,{'Content-Type':'application/json'});
+        res.write(JSON.stringify({name:'sathi',age:23}));
+        res.end();
+    }
+    
+    res.writeHead(200,{'Content-Type':'text/html'});
+    res.write('<h1>Hello Sathi haru </h1>');
+    res.end();
+
+  
+})
+
+
+server.listen(8000,()=>{
+    console.log('Server is running on port 8000');
+})
+
+
